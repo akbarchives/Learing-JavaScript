@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=edge"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>To Do List Today</h3>
+    <p>add a task</p>
+    <input type="text" />
+    <button onclick="add()">add</button>
+    <button onclick="tambah()">tambah</button>
+
+    <ul id="myList">
+      <li>makan</li>
+      <li>minum</li>
+      <li>tidur</li>
+    </ul>
+
+    <script>
+      const add = () => {
+        //get item
+        const task = document.getElementsByTagName('input')[0].value;
+        let list = document.getElementById('myList');
+
+        // constructor
+        const listElement = document.createElement('li');
+        const strikeElement = document.createElement('strike');
+
+        //add parameter
+        const tasklist = document.createTextNode(task);
+
+        // append list with new task
+        strikeElement.appendChild(tasklist);
+        list.append(strikeElement);
+
+        listElement.appendChild(tasklist);
+        list.append(listElement);
+
+        // remove inputed text
+        document.getElementsByTagName('input')[0].value = '';
+      };
+
+      const tambah = () => {
+        document.write('<h2>Hello World!</h2><p>Have a nice day!</p>');
+      };
+    </script>
+  </body>
+</html>
